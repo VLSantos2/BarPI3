@@ -160,6 +160,8 @@ CREATE TABLE compras_produtos_produtos(
 CREATE TABLE clientes (
     id int not null auto_increment,
     nome varchar(50),
+    telefone varchar(50),
+    dt_nascimento date,
     PRIMARY KEY (id)
 );
 CREATE TABLE comandas (
