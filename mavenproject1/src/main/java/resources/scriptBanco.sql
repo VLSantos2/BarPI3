@@ -68,7 +68,7 @@ insert into usuarios(email, sexo, senha, nome, id_filial, cargo) values('vitor.s
 insert into usuarios(email, sexo, senha, nome, id_filial, cargo) values('','F','123456','Victoria','2','1');
 insert into usuarios(email, sexo, senha, nome, id_filial, cargo) values('','F','123456','Milena','3','1');
 insert into usuarios(email, sexo, senha, nome, id_filial, cargo) values('','M','123456','Yago','4','1');
-insert into usuarios(email, sexo, senha, nome, id_filial, cargo) values('','M','123456','Matheus','5','1');
+insert into usuarios(email, sexo, senha, nome, id_filial, cargo) values('matheus.j.m@live.com','M','123456','Matheus','5','1');
 
 CREATE TABLE fornecedores (
     id int not null auto_increment,
