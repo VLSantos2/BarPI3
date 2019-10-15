@@ -11,13 +11,15 @@ public class Filial {
     private int id_endereco;
 
     /*Construtor*/
+
     public Filial (int id, String nome, int id_endereco){
         this.id = id;
         this.nome = nome;
         this.id_endereco = id_endereco;   
         
     }
-    
+
+
     /*Get's e set's*/
     public int getId() {
         return id;
