@@ -17,7 +17,9 @@ public class Clientes {
     
 //Atributos necessarios para o cadastro de clientes.
     public Clientes(String nome, int id, String CPF) {
-
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;   
     }
 
     //Getters e Setters: Nome,Id,CPF
