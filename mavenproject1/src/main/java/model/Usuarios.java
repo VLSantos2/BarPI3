@@ -11,41 +11,33 @@ package model;
  */
 public class Usuarios {
 
-   
     private int id;
-    private String nome;
     private String email;
     private String sexo;
     private int senha;
+    private String nome;
     private int id_filial;
     private int cargo;
 
-     //Atributos necessários para o cadastro de usuario
-        public Usuarios(int id,String nome, String email, String sexo, int senha, int id_filial, int cargo) {
+    //Atributos necessários para o cadastro de usuario
+    public Usuarios(int id, String email, String sexo, int senha, String nome, int id_filial, int cargo) {
         this.id = id;
-        this.nome = nome;
-        this.email = email;  
+        this.email = email;
         this.sexo = sexo;
-        this.senha = senha; 
-         this.id_filial = id_filial;
+        this.senha = senha;
+        this.nome = nome;
+        this.id_filial = id_filial;
         this.cargo = cargo;
     }
-    
+
     //Getters e Setters
+    
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getEmail() {
@@ -70,6 +62,14 @@ public class Usuarios {
 
     public void setSenha(int senha) {
         this.senha = senha;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getId_filial() {
