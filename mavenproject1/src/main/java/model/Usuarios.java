@@ -11,7 +11,7 @@ package model;
  */
 public class Usuarios {
 
-    //Atributos necessários para o cadastro de usuario
+   
     private int id;
     private String nome;
     private String email;
@@ -21,6 +21,18 @@ public class Usuarios {
     private int id_filial;
     private int cargo;
 
+     //Atributos necessários para o cadastro de usuario
+        public Usuarios(int id,String nome, String email, String cpf,  String sexo, int senha, int id_filial, int cargo) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;  
+         this.cpf = cpf;
+        this.sexo = sexo;
+        this.senha = senha; 
+         this.id_filial = id_filial;
+        this.cargo = cargo;
+    }
+    
     //Getters e Setters
     public int getId() {
         return id;
