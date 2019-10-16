@@ -15,16 +15,17 @@ public class Clientes {
     private int id;
     private int dt_nascimento;
     private int telefone;
-    
+
 //Atributos necessarios para o cadastro de clientes.
     public Clientes(String nome, int id, int dt_nascimento, int telefone) {
         this.id = id;
         this.nome = nome;
-       this.dt_nascimento = dt_nascimento;
-       this.telefone = telefone;
+        this.telefone = telefone;
+        this.dt_nascimento = dt_nascimento;
+
     }
 
-    //Getters e Setters: Nome,Id,Dt de nascimento, Telefone
+    //Getters e Setters: Nome,Id,Telefone, Dt de nascimento)
     public String getNome() {
         return nome;
     }
@@ -41,24 +42,20 @@ public class Clientes {
         this.id = id;
     }
 
+    public int getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
+    }
 
     public int getDt_nascimento() {
         return dt_nascimento;
     }
 
-
     public void setDt_nascimento(int dt_nascimento) {
         this.dt_nascimento = dt_nascimento;
-    }
-
-
-    public int getTelefone() {
-        return telefone;
-    }
-
-
-    public void setTelefone(int telefone) {
-        this.telefone = telefone;
     }
 
 }
