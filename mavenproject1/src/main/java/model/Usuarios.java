@@ -15,18 +15,16 @@ public class Usuarios {
     private int id;
     private String nome;
     private String email;
-    private String cpf;
     private String sexo;
     private int senha;
     private int id_filial;
     private int cargo;
 
      //Atributos necessários para o cadastro de usuario
-        public Usuarios(int id,String nome, String email, String cpf,  String sexo, int senha, int id_filial, int cargo) {
+        public Usuarios(int id,String nome, String email, String sexo, int senha, int id_filial, int cargo) {
         this.id = id;
         this.nome = nome;
         this.email = email;  
-         this.cpf = cpf;
         this.sexo = sexo;
         this.senha = senha; 
          this.id_filial = id_filial;
@@ -56,14 +54,6 @@ public class Usuarios {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public String getSexo() {
