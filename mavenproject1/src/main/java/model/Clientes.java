@@ -13,16 +13,18 @@ public class Clientes {
 
     private String nome;
     private int id;
-    private int cpf;
+    private int dt_nascimento;
+    private int telefone;
     
 //Atributos necessarios para o cadastro de clientes.
-    public Clientes(String nome, int id, String CPF) {
+    public Clientes(String nome, int id, int dt_nascimento, int telefone) {
         this.id = id;
         this.nome = nome;
-        this.cpf = cpf;   
+       this.dt_nascimento = dt_nascimento;
+       this.telefone = telefone;
     }
 
-    //Getters e Setters: Nome,Id,CPF
+    //Getters e Setters: Nome,Id,Dt de nascimento, Telefone
     public String getNome() {
         return nome;
     }
@@ -39,11 +41,24 @@ public class Clientes {
         this.id = id;
     }
 
-    public int getCpf() {
-        return cpf;
+
+    public int getDt_nascimento() {
+        return dt_nascimento;
     }
 
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
+
+    public void setDt_nascimento(int dt_nascimento) {
+        this.dt_nascimento = dt_nascimento;
     }
+
+
+    public int getTelefone() {
+        return telefone;
+    }
+
+
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
+    }
+
 }
