@@ -14,7 +14,7 @@ import model.Usuarios;
  * @author MILENA
  */
 public class UsuariosDao {
-     public static ArrayList<Usuarios> encontrarUsuariosId(int id) throws SQLException, ClassNotFoundException {
+     public static ArrayList<Usuarios> encontrarUsuariosporId(int id) throws SQLException, ClassNotFoundException {
         
         ArrayList<Usuarios> UsuariosRetorno = new ArrayList<Usuarios>();
         String sql = "SELECT p.* FROM Usuarios p WHERE id =?;  id = ?;";
@@ -23,6 +23,7 @@ public class UsuariosDao {
                 PreparedStatement select = conn.prepareStatement(sql);) {
             select.setInt(1, id);
             ResultSet retorno = select.executeQuery();
+     //   public Usuarios(int id, String email, String sexo, int senha, String nome, int id_filial, int cargo)
             while (retorno.next()) {
                 Usuarios p = new Usuarios(
                        
