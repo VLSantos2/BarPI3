@@ -164,6 +164,11 @@ CREATE TABLE clientes (
     dt_nascimento date,
     PRIMARY KEY (id)
 );
+insert into clientes(nome, telefone, dt_nascimento) values ('Milena',  12345678, 02/11/1997);
+insert into clientes(nome, telefone, dt_nascimento) values ('Matheus', 12345678, 17/10/1995);
+insert into clientes(nome, telefone, dt_nascimento) values ('Vitor',   12345678, 01/01/1996);
+insert into clientes(nome, telefone, dt_nascimento) values ('Vitoria', 12345678, 02/10/1998);
+
 CREATE TABLE comandas (
     id int not null auto_increment,
     id_venda int,
