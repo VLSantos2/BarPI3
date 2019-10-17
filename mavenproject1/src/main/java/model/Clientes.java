@@ -13,7 +13,7 @@ public class Clientes {
 
     private String nome;
     private int id;
-    private int dt_nascimento;
+    private Date dt_nascimento;
     private int telefone;
 
 //Atributos necessarios para o cadastro de clientes.
@@ -54,7 +54,7 @@ public class Clientes {
         return dt_nascimento;
     }
 
-    public void setDt_nascimento(int dt_nascimento) {
+    public void setDt_nascimento(Date dt_nascimento) {
         this.dt_nascimento = dt_nascimento;
     }
 
