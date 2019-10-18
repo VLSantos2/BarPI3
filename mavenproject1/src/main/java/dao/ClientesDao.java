@@ -90,5 +90,23 @@ public class ClientesDao {
         }
     return false;
 }
+       public boolean excluir(int id) throws ClassNotFoundException, SQLException {
+    Connection conn = interface_conexao.obterConexao();
+    String sql = "DELETE FROM clientes WHERE id = ?;";
+        try (PreparedStatement comando = conn.prepareStatement(sql);){
+            comando.setInt(1, id);
+            
+            comando.execute();
+            
+            return true;
+            
+        } catch (SQLException ex) {
+            
+        } finally {
+
+        }
+        
+        return false;
+    }
    
 }
