@@ -1,49 +1,45 @@
-
 package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import model.Usuarios;
-
 
 /**
  *
  * @author MILENA
  */
 public class UsuariosDao {
-     public static ArrayList<Usuarios> encontrarUsuariosporId(int id) throws SQLException, ClassNotFoundException {
-        
-        ArrayList<Usuarios> UsuariosRetorno = new ArrayList<Usuarios>();
-        String sql = "SELECT p.* FROM Usuarios p WHERE id =?;  id = ?;";
-        
-        try (Connection conn = interface_conexao.obterConexao();
-                PreparedStatement select = conn.prepareStatement(sql);) {
-            select.setInt(1, id);
-            ResultSet retorno = select.executeQuery();
-     //   public Usuarios(int id, String email, String sexo, int senha, String nome, int id_filial, int cargo)
-            while (retorno.next()) {
-                Usuarios p = new Usuarios(
-                       
-                        retorno.getInt(1),
-                        retorno.getString(2),
-                        retorno.getString(3),
-                        retorno.getInt(4),
-                        retorno.getString(5),
-                        retorno.getInt(6),
-                        retorno.getInt(7)
+
+    public Usuarios buscar(int id) throws ClassNotFoundException, SQLException {
+        String sql = "SELECT * FROM Usuarios WHERE id = ???";
+        Connection conn = interface_conexao.obterConexao();
+        try (
+                PreparedStatement comando = conn.prepareStatement(sql);) {
+            comando.setInt(1, id);
+
+            ResultSet resultado = comando.executeQuery();
+
+            if (resultado.next()) {
+                Usuarios u = new Usuarios(
+                        resultado.getInt(1),
+                        resultado.getString(2),
+                        resultado.getString(3),
+                        resultado.getInt(4),
+                        resultado.getString(5),
+                        resultado.getInt(6),
+                        resultado.getInt(7)
                 );
-                
-                UsuariosRetorno.add(p);
+
+                return u;
             }
+
+        } catch (SQLException ex) {
+
+        } finally {
             conn.close();
         }
-        return UsuariosRetorno;
+        return null;
     }
-        
-        
 }
-
-
