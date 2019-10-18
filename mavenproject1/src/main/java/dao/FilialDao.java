@@ -13,7 +13,7 @@ import model.Filial;
  */
 public class FilialDao {  
     
-    public Filial buscar(int id) throws ClassNotFoundException, SQLException {
+public Filial buscar(int id) throws ClassNotFoundException, SQLException {
         String sql = "SELECT * FROM filiais WHERE id = ???";
         Connection conn = interface_conexao.obterConexao();
         try (
@@ -62,5 +62,26 @@ public boolean cadastrar(Filial filial) throws ClassNotFoundException, SQLExcept
         return false;
     }
    
+public boolean atualizar(int id, Filial f) throws SQLException, ClassNotFoundException {
+    String sql = "UPDATE filiais SET nome = ?, Id_endereco = ?, WHERE id = ?;"; 
+    Connection conn = interface_conexao.obterConexao();
+    try (           
+            PreparedStatement comando = conn.prepareStatement(sql);){
+
+            comando.setString(1, f.getNome());
+            comando.setInt(2, f.getId_endereco());
+            comando.setInt(3, f.getId());
+
+            comando.execute();
+            
+            return true;
+            
+        } catch (SQLException ex) {
+
+        } finally {
+            conn.close();
+        }
+    return false;
+}
 }
 
