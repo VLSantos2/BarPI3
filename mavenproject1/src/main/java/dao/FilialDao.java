@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import model.Filial;
 
 /**
@@ -14,7 +16,7 @@ import model.Filial;
 public class FilialDao {  
     
 public Filial buscar(int id) throws ClassNotFoundException, SQLException {
-        String sql = "SELECT * FROM filiais WHERE id = ???";
+        String sql = "SELECT * FROM filiais WHERE id = ?";
         Connection conn = interface_conexao.obterConexao();
         try (
                 PreparedStatement comando = conn.prepareStatement(sql);) {
@@ -101,6 +103,37 @@ public boolean excluir(int idfilial) throws ClassNotFoundException, SQLException
         }
         
         return false;
+    }
+
+public List<Filial> listar() throws ClassNotFoundException, SQLException {
+        List<Filial> filiais = new ArrayList<Filial>();
+        Connection conn = interface_conexao.obterConexao();
+        String sql = "SELECT * FROM filiais ORDER BY id DESC";
+        try (
+            
+            PreparedStatement comando = conn.prepareStatement(sql);){
+            
+            ResultSet resultado = comando.executeQuery();
+            
+            while (resultado.next()) {                
+                Filial f = new Filial(
+                    resultado.getInt("id"),
+                    resultado.getString("nome"),
+                    resultado.getInt("id_endereco")                   
+                );
+                
+                filiais.add(f);
+            }
+            
+            return filiais;
+            
+        } catch (SQLException ex) {
+
+        } finally {
+            conn.close();
+        }
+        
+        return null;
     }
 }
 
