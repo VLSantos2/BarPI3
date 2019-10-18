@@ -10,34 +10,44 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Filial;
 
 /**
  *
  * @author matheus.jmaia
  */
-public class FilialDao {
+public class FilialDao {  
     
-    public static ArrayList<Filial> encontrarProdutoId(int id) throws SQLException, ClassNotFoundException {
-        
-        ArrayList<Filial> FilialRetorno = new ArrayList<Filial>();
-        String sql = "SELECT p.* FROM FILIAIS p WHERE id =?;  id = ?;";
-        
-        try (Connection conn = interface_conexao.obterConexao();
-                PreparedStatement select = conn.prepareStatement(sql);) {
-            select.setInt(1, id);
-            ResultSet retorno = select.executeQuery();
-            while (retorno.next()) {
-                Filial p = new Filial(
-                        retorno.getInt(1),
-                        retorno.getString(2),
-                        retorno.getInt(3)
+    public Filial buscar(int id) throws ClassNotFoundException, SQLException {
+        String sql = "SELECT * FROM filiais WHERE id = ???";
+        Connection conn = interface_conexao.obterConexao();
+        try (
+                PreparedStatement comando = conn.prepareStatement(sql);) {
+                    comando.setInt(1, id);
+            
+            ResultSet resultado = comando.executeQuery();
+            
+            if (resultado.next()) {                
+                    Filial f = new Filial(
+                        resultado.getInt(1),
+                        resultado.getString(2),
+                        resultado.getInt(3)
                 );
                 
-                FilialRetorno.add(p);
-            }
+                return f;
+            }           
+            
+        } catch (SQLException ex) {
+            
+        } finally {
             conn.close();
         }
-        return FilialRetorno;
+        return null;
     }
+    
+    
+    
 }
+
