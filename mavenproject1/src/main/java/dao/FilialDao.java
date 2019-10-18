@@ -83,5 +83,25 @@ public boolean atualizar(int id, Filial f) throws SQLException, ClassNotFoundExc
         }
     return false;
 }
+
+public boolean excluir(int idfilial) throws ClassNotFoundException, SQLException {
+    Connection conn = interface_conexao.obterConexao();
+    String sql = "DELETE FROM filiais WHERE id = ?;";
+        try (PreparedStatement comando = conn.prepareStatement(sql);){
+            comando.setInt(1, idfilial);
+            
+            comando.execute();
+            
+            return true;
+            
+        } catch (SQLException ex) {
+            
+        } finally {
+
+        }
+        
+        return false;
+    }
 }
+
 
