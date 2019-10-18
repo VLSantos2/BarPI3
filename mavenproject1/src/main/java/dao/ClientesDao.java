@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Clientes;
+
+
 
 /**
  *
@@ -13,29 +16,31 @@ import model.Clientes;
  */
 public class ClientesDao {
 
-    public static ArrayList<Clientes> encontrarClientesporId(int id) throws SQLException, ClassNotFoundException {
-
-        ArrayList<Clientes> ClientesRetorno = new ArrayList<Clientes>();
-        String sql = "SELECT p.* FROM Clientes p WHERE id =?;  id = ?;";
-
-        try (Connection conn = interface_conexao.obterConexao();
-                PreparedStatement select = conn.prepareStatement(sql);) {
-            select.setInt(1, id);
-            ResultSet retorno = select.executeQuery();
-            //public Clientes(String nome, int id, date dt_nascimento, int telefone)
-            while (retorno.next()) {
-                Clientes p = new Clientes(
-                        retorno.getString(1),
-                        retorno.getInt(2),
-                        retorno.getDate(3),
-                        retorno.getInt(4)
+       public Clientes buscar(int id) throws ClassNotFoundException, SQLException {
+        String sql = "SELECT * FROM Clientes WHERE id = ???";
+        Connection conn = interface_conexao.obterConexao();
+        try (
+                PreparedStatement comando = conn.prepareStatement(sql);) {
+                    comando.setInt(1, id);
+            
+            ResultSet resultado = comando.executeQuery();
+            
+            if (resultado.next()) {                
+                    Clientes c = new Clientes(
+                        resultado.getString(1),
+                        resultado.getInt(2),
+                        resultado.getDate(3),
+                        resultado.getInt(4)
                 );
-
-                ClientesRetorno.add(p);
-            }
+                
+                return c;
+            }           
+            
+        } catch (SQLException ex) {
+            
+        } finally {
             conn.close();
         }
-        return ClientesRetorno;
+        return null;
     }
-
 }
