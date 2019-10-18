@@ -22,12 +22,12 @@ public class ClientesDao {
                 PreparedStatement select = conn.prepareStatement(sql);) {
             select.setInt(1, id);
             ResultSet retorno = select.executeQuery();
-            //public Clientes(String nome, int id, int dt_nascimento, int telefone)
+            //public Clientes(String nome, int id, date dt_nascimento, int telefone)
             while (retorno.next()) {
                 Clientes p = new Clientes(
                         retorno.getString(1),
                         retorno.getInt(2),
-                        retorno.getInt(3),
+                        retorno.getDate(3),
                         retorno.getInt(4)
                 );
 

@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author MILENA
@@ -17,7 +19,15 @@ public class Clientes {
     private int telefone;
 
 //Atributos necessarios para o cadastro de clientes.
-    public Clientes(String nome, int id, int dt_nascimento, int telefone) {
+
+    /**
+     *
+     * @param nome
+     * @param id
+     * @param dt_nascimento
+     * @param telefone
+     */
+    public Clientes(String nome, int id, Date dt_nascimento, int telefone) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
@@ -50,7 +60,7 @@ public class Clientes {
         this.telefone = telefone;
     }
 
-    public int getDt_nascimento() {
+    public Date getDt_nascimento() {
         return dt_nascimento;
     }
 
