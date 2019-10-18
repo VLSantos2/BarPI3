@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.Filial;
 
 /**
@@ -47,7 +40,27 @@ public class FilialDao {
         return null;
     }
     
-    
-    
+public boolean cadastrar(Filial filial) throws ClassNotFoundException, SQLException {
+        Connection conn = interface_conexao.obterConexao();
+        String sql = "INSERT INTO filiais (nome, id, id_endereco) values(?,?,?);";
+        try (
+            PreparedStatement comando = conn.prepareStatement(sql); ){
+
+            comando.setString(1, filial.getNome());
+            comando.setInt(2, filial.getId());
+            comando.setInt(3, filial.getId_endereco());            
+            comando.execute();
+            
+            return true;
+            
+        } catch (SQLException ex) {
+            
+        } finally {
+            conn.close();
+        }
+        
+        return false;
+    }
+   
 }
 
