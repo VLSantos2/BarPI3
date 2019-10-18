@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Clientes;
+import model.Filial;
 
 
 
@@ -44,6 +45,7 @@ public class ClientesDao {
         }
         return null;
     }
+       
        public boolean cadastrar(Clientes clientes) throws ClassNotFoundException, SQLException {
         Connection conn = interface_conexao.obterConexao();
         String sql = "INSERT INTO Clientes (nome, id, dt_nascimento, telefone ) values(?,?,?,?);";
@@ -66,5 +68,27 @@ public class ClientesDao {
         
         return false;
     }
+       public boolean atualizar(int id, Clientes c) throws SQLException, ClassNotFoundException {
+    String sql = "UPDATE Clientes SET nome = ?, Id = ?, dt_nascimento = ?, telefone = ?, WHERE id = ?;"; 
+    Connection conn = interface_conexao.obterConexao();
+    try (           
+            PreparedStatement comando = conn.prepareStatement(sql);){
+
+            comando.setString(1, c.getNome());
+            comando.setInt(2, c.getId());
+            comando.setDate(3, c.getDt_nascimento());
+             comando.setInt(3, c.getTelefone());
+
+            comando.execute();
+            
+            return true;
+            
+        } catch (SQLException ex) {
+
+        } finally {
+            conn.close();
+        }
+    return false;
+}
    
 }
