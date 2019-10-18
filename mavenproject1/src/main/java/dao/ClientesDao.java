@@ -10,6 +10,7 @@ import model.Clientes;
 
 
 
+
 /**
  *
  * @author MILENA
@@ -43,4 +44,27 @@ public class ClientesDao {
         }
         return null;
     }
+       public boolean cadastrar(Clientes clientes) throws ClassNotFoundException, SQLException {
+        Connection conn = interface_conexao.obterConexao();
+        String sql = "INSERT INTO Clientes (nome, id, dt_nascimento, telefone ) values(?,?,?,?);";
+        try (
+            PreparedStatement comando = conn.prepareStatement(sql); ){
+
+            comando.setString(1, clientes.getNome());
+            comando.setInt(2,clientes.getId());
+            comando.setDate(3, clientes.getDt_nascimento());  
+            comando.setInt(4,clientes.getTelefone());
+            comando.execute();
+            
+            return true;
+            
+        } catch (SQLException ex) {
+            
+        } finally {
+            conn.close();
+        }
+        
+        return false;
+    }
+   
 }
