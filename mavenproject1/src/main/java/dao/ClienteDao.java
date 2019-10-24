@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Clientes;
+import model.Cliente;
 
 
 
@@ -26,7 +26,7 @@ public class ClienteDao {
             ResultSet resultado = comando.executeQuery();
             
             if (resultado.next()) {                
-                    Cliente c = new Clientes(
+                    Cliente c = new Cliente(
                         resultado.getString(1),
                         resultado.getInt(2),
                         resultado.getDate(3),
