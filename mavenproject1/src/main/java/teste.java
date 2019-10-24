@@ -19,5 +19,9 @@ public class teste {
         ArrayList<Produto> teste;
         teste = ProdutoDao.encontrarProdutoPorId(2);
         
+        for(Produto p : teste) {
+            System.out.println(p.getNome());
+        }
+        
     }
 }

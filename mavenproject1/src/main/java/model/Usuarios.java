@@ -31,7 +31,6 @@ public class Usuarios {
     }
 
     //Getters e Setters
-    
     public int getId() {
         return id;
     }

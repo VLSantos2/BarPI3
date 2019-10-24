@@ -29,12 +29,13 @@ public class ProdutoDao {
             ResultSet retorno = select.executeQuery();
             //public Produto(int id, String nome, int id_categoria, String tamanho, String sabor)
             while (retorno.next()) {
+                System.out.println(retorno.getInt("id") );
                 Produto p = new Produto(
-                        retorno.getInt(0),
-                        retorno.getString(1),
-                        retorno.getInt(2),
-                        retorno.getString(3),
-                        retorno.getString(4)
+                        retorno.getInt("id"),
+                        retorno.getString("nome"),
+                        retorno.getInt("id_categoria"),
+                        retorno.getString("tamanho"),
+                        retorno.getString("sabor")
                 );
                 
                 produtoRetorno.add(p);
