@@ -35,9 +35,9 @@
 
         function editarUsuario(id, nome, email, senha, sexo, cargo, filial) {
             idUsuario = id;
-            document.getElementById("nomeUsuario").setAttribute('value',nome);
-            document.getElementById("emailUsuario").setAttribute('value',email);
-            document.getElementById("senhaUsuario").setAttribute('value',senha);
+            document.getElementById("nomeUsuario").setAttribute('value', nome);
+            document.getElementById("emailUsuario").setAttribute('value', email);
+            document.getElementById("senhaUsuario").setAttribute('value', senha);
             //document.getElementById("sexoUsuario").setAttribute('value','');
             //document.getElementById("nivelAcessoUsuario").setAttribute('value','My default value');
             //document.getElementById("Filial").setAttribute('value','My default value');
@@ -178,7 +178,7 @@
                                 <td>${usuarios['cargo']}</td>
                                 <td>${usuarios['id_filial']}</td>
                                 <!--function editarUsuario(id, nome, email, senha, sexo, cargo, filial) {-->
-                                <td><button onclick="editarUsuario('${usuarios['id']}','${usuarios['nome']}','${usuarios['email']}','${usuarios['senha']}','${usuarios['sexo']}','${usuarios['cargo']}','${usuarios['id_filial']}')" type="button" class="btn btn-outline-dark"
+                                <td><button onclick="editarUsuario('${usuarios['id']}', '${usuarios['nome']}', '${usuarios['email']}', '${usuarios['senha']}', '${usuarios['sexo']}', '${usuarios['cargo']}', '${usuarios['id_filial']}')" type="button" class="btn btn-outline-dark"
                                             data-toggle="modal" data-target="#exampleModal"">Alterar</button></td>
                             </tr>
                         </c:forEach>
